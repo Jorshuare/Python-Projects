@@ -1,0 +1,50 @@
+import random
+
+list1 = ["joshua", "joy", "testimony", "grace"]
+
+random_name = random.choice(list1)
+word_length = len(random_name)
+
+display = []
+for obj in range(word_length):
+    display += '_'
+guessed_word = []
+lives = 5
+game_on = True
+while game_on:
+    print(f'The word is a {word_length} letters long')
+    guessed_name = input('Make a guess: ').lower()
+
+    if guessed_name in display:
+        print('already guessed this word')
+
+    else:
+
+        for position in range(word_length):
+            letter = random_name[position]
+            if letter == guessed_name:
+                display[position] = letter
+
+        if guessed_name not in random_name:
+            lives -= 1
+            print('apps you are wrong try again')
+            print(f'you have {lives} lives left')
+            print(display)
+            guessed_word.append(guessed_name)
+
+        else:
+            print('correct')
+            print(f'you have {lives} lives left')
+            print(display)
+            guessed_word.append(guessed_name)
+
+        if lives == 0:
+            game_on = False
+            print('you lose')
+            print(f'the word is {random_name}')
+
+        if len(guessed_word) == word_length:
+            game_on = False
+            print('you win')
+            print(f'you guessed {guessed_word}')
+            print(f'the word is {random_name}')
