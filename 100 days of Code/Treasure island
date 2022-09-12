@@ -1,0 +1,75 @@
+def treasure():
+    return'''
+
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/________
+*******************************************************************************
+    '''
+
+
+def print_message():
+    return 'Please enter a valid parameter'
+
+
+def first_stage():
+    user_input = input('Enter either left or right: ').lower()
+    if user_input == 'left':
+        return second_stage()
+    elif user_input == 'right':
+        return 'Game Over'
+    else:
+        print(print_message())
+        return first_stage()
+
+
+def second_stage():
+    user_input2 = input('Enter either Swim or Wait: ').lower()
+    if user_input2 == 'wait':
+        return third_stage()
+    elif user_input2 == 'swim':
+        return 'Game Over'
+    else:
+        print(print_message())
+        return second_stage()
+
+
+def third_stage():
+    user_input3 = input('Which door will you like to enter? Red, blue or yellow?: ')
+    if user_input3 == 'red':
+        return 'Game Over'
+    elif user_input3 == 'yellow':
+        return 'You Win!'
+    elif user_input3 == 'blue':
+        return 'Game Over'
+    else:
+        print(print_message())
+        return third_stage()
+
+
+def treasure_island():
+    print(treasure())
+    print('Welcome to Treasure Island')
+    print('Your mission is to find the treasure')
+
+    a = first_stage()
+    print(f'{a}')
+
+
+treasure_island()
