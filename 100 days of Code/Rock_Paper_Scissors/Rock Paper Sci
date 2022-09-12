@@ -1,0 +1,109 @@
+import random
+import time
+
+
+class Game:
+    def __init__(self, rock='''
+               _______
+              ---'   ____)
+                    (_____)
+                    (_____)
+                    (____)
+              ---.__(___)
+                ROCK
+        ''', paper='''
+              _______
+              ---'   ____)____
+                        ______)
+                        _______)
+                       _______)
+              ---.__________)
+                PAPER
+        ''', scissors='''
+              _______
+              ---'   ____)____
+                        ______)
+                     __________)
+                    (____)
+              ---.__(___)
+                SCISSORS'''):
+        print('Hello, welcome to the Rock, Paper, Scissor game')
+        self.rock = rock
+        self.paper = paper
+        self.scissors = scissors
+
+        self.list1 = [self.rock, self.paper, self.scissors]
+
+
+g = Game()
+
+score = 0
+
+a = True
+while a:
+    try:
+        num_of_play = int(input('How many times will you like to play this game: '))
+        print(f'Nice! You will be playing this game {num_of_play} times')
+        a = False
+    except ValueError:
+        print('Wrong input! Kindly enter an integer only')
+        a = True
+print(num_of_play)
+
+for i in range(num_of_play):
+    time.sleep(1)
+
+    game_on = True
+    while game_on:
+        user_input = int(input('\nEnter 0 for rock, 1 for paper and 2 for scissors: '))
+
+        if user_input >= 3:
+            print('Enter a valid number')
+            game_on = True
+
+        else:
+            if user_input == 0:
+                print(g.rock)
+
+            elif user_input == 1:
+                print(g.paper)
+
+            elif user_input == 2:
+                print(g.scissors)
+
+            computer_input = random.randint(0, 2)
+            computer = g.list1[computer_input]
+            time.sleep(2)
+            print(f'\nThe computer chose: {computer}')
+
+            if user_input == 0 and computer_input == 2:
+                time.sleep(1)
+                print('You win, rock breaks scissors ')
+                score += 1
+                game_on = False
+
+            elif user_input == 2 and computer_input == 0:
+                time.sleep(1)
+                print('You lose, computer wins. Rock breaks scissors')
+                game_on = False
+
+            elif user_input > computer_input:
+                time.sleep(1)
+                print('You win')
+                score += 1
+                game_on = False
+
+            elif user_input < computer_input:
+                time.sleep(1)
+                print('You lose')
+                game_on = False
+
+            elif user_input == computer_input:
+                time.sleep(1)
+                print('It\'s a draw')
+                game_on = False
+
+time.sleep(1)
+print('\n-------------------------------------')
+time.sleep(2)
+print(f'Your score for playing {num_of_play} times is {score} ')
