@@ -1,0 +1,2 @@
+for i in ramge(10):
+    print(i)
