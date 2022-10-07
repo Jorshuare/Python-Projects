@@ -1,3 +1,7 @@
+"""
+This project is used to encrypt and decrypt letters (messages) just like Caesar Cipher technique
+"""
+
 class Cipher:
     def __init__(self):
         self.alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
