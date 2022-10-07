@@ -1,6 +1,10 @@
 from data import data
 import time
 
+"""
+Compare two questions together, if the user gets it right, a point is added to his score
+"""
+
 score = 0
 # a = data[1]
 # print(a)
