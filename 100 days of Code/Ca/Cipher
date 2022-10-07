@@ -1,5 +1,8 @@
 import random
 
+"""
+This project is used to encrypt and decrypt letters (messages) just like Caesar Cipher technique
+"""
 
 class Password:
     def __init__(self):
